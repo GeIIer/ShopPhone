@@ -1,0 +1,7 @@
+<div class = "menu-container">
+  <div class = "item-menu"> <a routerLink = "/home">Главная</a></div>
+  <div class = "item-menu"> <a routerLink = "/products">Каталог</a> </div>
+  <div class = "item-menu-shop"> <a routerLink = "/cart"><img class = "cart" src="../../../assets/imgs/shop.png" alt="Корзина"> <div class="shop"> Корзина </div> </a></div>
+  <div class = "item-menu-shop" *ngIf="!isLoggedIn"> <a routerLink = "/login"> <img class = "login" src="../../../assets/imgs/user.png" alt="Вход"> <div class="shop"> Вход </div> </a></div>
+  <div class = "item-menu-shop" *ngIf="isLoggedIn"> <a routerLink = "/profile"> <img class = "login" src="../../../assets/imgs/user.png" alt="Профиль"> <div class="shop"> Профиль </div> </a></div>
+</div>

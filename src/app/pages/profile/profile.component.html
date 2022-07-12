@@ -1,0 +1,18 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.first_name }}</strong> Профиль
+    </h3>
+  </header>
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+    <strong>Телефон</strong>
+    {{ currentUser.phoneNumber }}
+  </p>
+  <button class="btn-block" (click)="logout()"> Выход </button>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

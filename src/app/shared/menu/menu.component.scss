@@ -1,0 +1,53 @@
+:host{
+  background-color: #fafafa;
+  position: fixed;
+  padding: 16px;
+  width: 100%;
+}
+
+.menu-container{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+a{
+  text-decoration:none;
+  color: inherit;
+}
+
+.item-menu{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+
+}
+
+.item-menu-shop{
+  margin-top: -10px;
+  margin-right: 35px;
+}
+
+.cart{
+  position: relative;
+  top: 3px;
+}
+
+.shop{
+  display: inline;
+  position: relative;
+  top: -5px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+
+}
+
+.login{
+  display: inline;
+  position: relative;
+  top: 4px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+  width: 32px;
+}
+
+

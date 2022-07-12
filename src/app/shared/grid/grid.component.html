@@ -1,0 +1,40 @@
+<table class="Table">
+  <div [ngSwitch]="myType">
+    <ng-template [ngSwitchCase]="typeColumn.Products">
+      <thead>
+        <tr>
+          <th class="table-head" *ngFor="let column of columns">
+            {{ column.columnName }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItem of data">
+        <td class="table-cell" *ngFor="let column of columns">
+          {{ dataItem[column.columnField] }}
+        </td>
+        <button class="buyButton" (click)="addToCart(dataItem)">Купить</button>
+        </tr>
+      </tbody>
+      </ng-template>
+
+      <ng-template [ngSwitchCase]="typeColumn.Cart">
+        <thead>
+          <tr>
+            <th class="table-head" *ngFor="let column of columns">
+              {{ column.columnName }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let dataItem of cart">
+          <td class="table-cell" *ngFor="let column of columns">
+              {{ dataItem[column.columnField] }}
+          </td>
+          <button class = "btn-remove" (click)="removeItem(dataItem)"> <img src="../../../assets/imgs/trash.svg"> </button>
+          </tr>
+        </tbody>
+      </ng-template>
+      </div>
+</table>
+

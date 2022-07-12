@@ -1,0 +1,33 @@
+<ng-container *ngIf="products.length != 0">
+  <div class="cart-container">
+    <H1>Ваш Заказ</H1>
+    <app-grid [columns]="columns" [cart]="products" myType="Cart"> </app-grid>
+    <hr />
+    <div class="card-footer">
+      <strong>ИТОГО : {{ grandTotal }} ₽</strong>
+      <div class="btn-buy-or-login">
+        <button *ngIf="isLoggedIn" (click)="buyProduct()" class="btn-buy">
+          Оформить заказ
+        </button>
+        <button *ngIf="!isLoggedIn" (click)="routToLogin()" class="btn-to-login">
+          Авторизоваться
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <div class="container">
+    <div class="card">
+      <H1 class="card-title">Ваша корзина</H1>
+    </div>
+    <div class="center">
+      <h4>Ваша корзина сейчас пуста</h4>
+      <h6>Добавьте сюда что-нибудь!</h6>
+      <button routerLink="/products" class="btn-back">
+        Вернуться к покупкам
+      </button>
+    </div>
+  </div>
+</ng-container>

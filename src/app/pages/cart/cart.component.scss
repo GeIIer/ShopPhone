@@ -1,0 +1,38 @@
+.card-footer{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.cart-container {
+  margin-left: 70px;
+}
+.container {
+  margin-left: 70px;
+}
+.btn-buy{
+  background: #2196f3;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: Tahoma;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.btn-to-login{
+  background: #2196f3;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: Tahoma;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 100;
+  cursor: pointer;
+}
