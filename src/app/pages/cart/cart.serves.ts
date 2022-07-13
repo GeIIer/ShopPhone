@@ -55,13 +55,17 @@ export class CartService {
     this.productList.next(this.cartItemList);
   }
 
+  removeAllCart(){
+    this.cartItemList = []
+    this.productList.next(this.cartItemList);
+  }
+
   buyProduct(product: Product[]) {
     let user = this.storage.getUser();
     let token = this.storage.getToken(user);
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', "Bearer "+token);
-    console.log(addOrder, JSON.stringify(product), {headers});
     this.http.post(addOrder+"?email="+user.email, JSON.stringify(product), {headers}).subscribe({
       next: data => {
         console.log(data);

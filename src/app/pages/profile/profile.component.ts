@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthServes } from 'src/app/service/auth.serves';
 import { StorageServes } from 'src/app/service/storage.serves';
 import { Router } from '@angular/router'
+import { User } from '@core/models/user';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +10,15 @@ import { Router } from '@angular/router'
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  currentUser: any;
+  profile: User;
 
   constructor(private auth: AuthServes, private store: StorageServes, private router: Router) { }
 
   ngOnInit(): void {
-    this.currentUser = this.store.getUser();
+    this.auth.getAccountInfoByProfile(this.store.getUser().email).subscribe(
+      data => {
+        this.profile = data;
+      });
   }
 
   logout(): void {

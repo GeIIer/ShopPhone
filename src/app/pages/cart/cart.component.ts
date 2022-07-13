@@ -37,6 +37,7 @@ export class CartComponent implements OnInit{
 
   buyProduct(){
     this.cartService.buyProduct(this.products);
+    this.cartService.removeAllCart();
   }
 
   columns: IGridColumn[] = [
