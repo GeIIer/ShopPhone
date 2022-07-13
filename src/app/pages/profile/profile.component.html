@@ -1,20 +1,23 @@
 <div class="container">
-  <header class="jumbotron">
+  <header class="profile-name">
     <h3>
-      <strong>{{ profile.firstName }} {{ profile.lastName }}</strong> Профиль
+      <strong>Профиль {{ profile.firstName }} {{ profile.lastName }}</strong>
     </h3>
   </header>
   <div class="info-container">
     <h3>Email: {{ profile.email }}</h3>
     <h3>Номер телефона: {{ profile.phoneNumber }}</h3>
-    <button class="btn-refresh" (click)="refreshOrder()">
-      Обновить список заявок
-    </button>
-    <button class="btn-block" (click)="logout()">Выход</button>
+    <div class="btn-container">
+      <button class="btn-refresh" (click)="refreshOrder()">
+        Обновить список заявок
+      </button>
+      <button class="btn-block" (click)="logout()">Выйти из профиля</button>
+    </div>
     <div class="orders-container" *ngFor="let order of orders">
-      <h4>Id Заявки: {{order.idOrder}}</h4>
-    <div class="order-products" *ngFor="let product of order.productEntities">
-      <h4>Товар: {{product.nameProduct}}</h4>
+      <h3>Id Заявки: {{ order.idOrder }}</h3>
+      <div class="order-products" *ngFor="let product of order.productEntities">
+        <h4>Товар: {{ product.nameProduct }} - {{ product.price }}, руб</h4>
+      </div>
     </div>
   </div>
 </div>

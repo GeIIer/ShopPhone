@@ -5,7 +5,6 @@ import { Router } from '@angular/router'
 import { User } from '@core/models/user';
 import { ProfileServes } from './profile.serves';
 import { Order } from '@core/models/order';
-import { IGridColumn } from 'src/app/shared/grid/models';
 
 @Component({
   selector: 'app-profile',
