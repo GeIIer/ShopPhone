@@ -3,6 +3,9 @@ import { AuthServes } from 'src/app/service/auth.serves';
 import { StorageServes } from 'src/app/service/storage.serves';
 import { Router } from '@angular/router'
 import { User } from '@core/models/user';
+import { ProfileServes } from './profile.serves';
+import { Order } from '@core/models/order';
+import { IGridColumn } from 'src/app/shared/grid/models';
 
 @Component({
   selector: 'app-profile',
@@ -11,13 +14,21 @@ import { User } from '@core/models/user';
 })
 export class ProfileComponent implements OnInit {
   profile: User;
+  orders: Order[];
 
-  constructor(private auth: AuthServes, private store: StorageServes, private router: Router) { }
+  constructor(private auth: AuthServes, private store: StorageServes, private profileServes: ProfileServes, private router: Router) { }
 
   ngOnInit(): void {
     this.auth.getAccountInfoByProfile(this.store.getUser().email).subscribe(
       data => {
         this.profile = data;
+      });
+  }
+
+  refreshOrder(): void {
+    this.profileServes.getOrders(this.profile.email).subscribe(
+      data => {
+        this.orders = data;
       });
   }
 
