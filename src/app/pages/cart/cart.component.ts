@@ -20,11 +20,8 @@ export class CartComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLoggedIn = this.storage.isLoggedIn();
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.products = res;
-      this.grandTotal = this.cartService.getTotalPrice();
-    })
+    this.products = this.cartService.getProducts();
+    this.grandTotal = this.cartService.getTotalPrice();
   }
 
   routToLogin(){

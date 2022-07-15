@@ -3,6 +3,7 @@
     <h1 class="name-shop">ShopPhone</h1>
     <input type="email"  [(ngModel)]="form.email" name="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
     <input type="password"  [(ngModel)]="form.password" name="password" id="inputPassword" class="form-control" placeholder="Пароль" required="">
+    <div class="error"> <h5>{{errorMessage}}</h5></div>
     <button class="btn-block" (click)="onSubmit()"> Вход </button>
     <button class="btn-block2" (click)="signUp()"> Зарегистрироваться </button>
   </form>

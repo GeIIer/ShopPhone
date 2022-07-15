@@ -14,14 +14,21 @@ import { Order } from '@core/models/order';
 export class ProfileComponent implements OnInit {
   profile: User;
   orders: Order[];
+  isLoggedIn = false;
 
   constructor(private auth: AuthServes, private store: StorageServes, private profileServes: ProfileServes, private router: Router) { }
 
   ngOnInit(): void {
-    this.auth.getAccountInfoByProfile(this.store.getUser().email).subscribe(
-      data => {
-        this.profile = data;
-      });
+    if (this.store.isLoggedIn()) {
+      this.isLoggedIn = true;
+      this.auth.getAccountInfoByProfile(this.store.getUser().email).subscribe(
+        data => {
+          this.profile = data;
+        });
+    }
+    else {
+      this.router.navigate(['/login']);
+    }
   }
 
   refreshOrder(): void {

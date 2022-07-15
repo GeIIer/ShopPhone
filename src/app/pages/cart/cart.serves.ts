@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@core/models';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { StorageServes } from 'src/app/service/storage.serves';
 
-const addOrder = 'http://localhost:8080/api/addOrder';
+const addOrder = 'http://localhost:8080/api/order/add';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,8 +22,10 @@ export class CartService {
   public errorMessage = "";
 
   constructor(private storage: StorageServes, private http:HttpClient) { }
-  getProducts(){
-    return this.productList.asObservable();
+  getProducts() {
+    var temp = JSON.parse(localStorage.getItem("products") || '{}');
+    this.cartItemList = temp;
+    return temp;
   }
 
   setProduct(product : any){
@@ -35,7 +37,7 @@ export class CartService {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
-    console.log(this.cartItemList)
+    localStorage.setItem("products", JSON.stringify(this.cartItemList));
   }
 
   getTotalPrice() : number{
@@ -53,11 +55,13 @@ export class CartService {
       }
     })
     this.productList.next(this.cartItemList);
+    localStorage.setItem("products", JSON.stringify(this.cartItemList));
   }
 
   removeAllCart(){
     this.cartItemList = []
     this.productList.next(this.cartItemList);
+    localStorage.setItem("products", JSON.stringify(this.cartItemList));
   }
 
   buyProduct(product: Product[]) {

@@ -17,7 +17,6 @@ export class AuthServes {
   constructor(private storage: StorageServes, private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
-    console.log(email, password, AUTH_API + "/login");
     return this.http.post(
       AUTH_API + "/login",
       {
