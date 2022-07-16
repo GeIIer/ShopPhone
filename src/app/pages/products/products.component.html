@@ -1,1 +1,56 @@
-<p>products works!</p>
+<div class="container-center">
+  <div class="product-page">
+    <h1 itemprop="name">{{ product.nameProduct }}</h1>
+    <div class="catalog-displaedItem">
+      <div class="float-left">
+        <div class="cod">
+          <span class="gray">Код товара: </span>
+          <span class="nowrap">{{ product.idProduct }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="product-page-info">
+      <div class="product-page-info-img"></div>
+      <div class="product-page-info-character">
+        <div class="info-column">
+          <div class="techical">
+            <div>
+              <span class="gray">Категория товара: </span>
+              <span class="nowrap">{{ product.category }}</span>
+            </div>
+            <div>
+              <span class="gray">Код производителя: </span>
+              <span class="nowrap">{{ product.manufacturer }}</span>
+            </div>
+          </div>
+          <div class="techical-character">
+            <h5>Характеристики</h5>
+            <div class="techical-character-info">
+              {{ product.characteristic }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-page-info-option">
+        <div class="product-page-offer">
+          <div class="product-price">
+            <p class="gray">Цена:</p>
+            <div class="price">
+              <span class="price-text">{{product.price}} ₽</span>
+            </div>
+          </div>
+          <div class="button-container">
+            <button class="btn-buy" (click)="addToCart(product)">
+              Купить
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-page-info-description">
+        <div class="description">
+          <span class="medium"> Описание: {{product.description}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

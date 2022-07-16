@@ -1,0 +1,172 @@
+.container-center {
+  min-width: 700px;
+  max-width: 1602px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 25px;
+}
+
+.product-page {
+  clear: both;
+  background: #fff;
+  padding: 0 0 30px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.15;
+  margin: 0 0 23px;
+}
+
+.catalog-displaedItem {
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.cod {
+  float: left;
+  padding: 1px 40px 0 0;
+  position: relative;
+}
+
+.gray {
+  color: #a5a5a5;
+}
+
+.product-page-info {
+  clear: both;
+  width: 100%;
+  float: left;
+  padding-bottom: 30px;
+}
+
+.product-page-info-img {
+  float: left;
+  width: 44.79%;
+  padding: 0 1.871% 0 0;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.product-page-info-character {
+  float: left;
+  width: 27.823%;
+  padding: 0 1.871% 0 0;
+  margin-right: 0;
+  position: relative;
+}
+
+.info-column {
+  padding: 0 0 16px;
+  line-height: 2.14;
+}
+
+.techical {
+  clear: both;
+  float: none;
+  width: 100%;
+  padding: 0 0 12px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.techical-character {
+  padding: 0;
+}
+
+.techical-character-info {
+  padding: 0;
+}
+
+.product-page-info-option {
+  float: right;
+  width: 23.581%;
+  padding: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.product-page-offer {
+  background-color: #f5f5f5;
+  padding: 27px 30px 30px;
+  margin-bottom: 0;
+  border-radius: 3px;
+}
+
+.product-price {
+  padding: 0 0 17px;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 1.875em;
+  position: relative;
+  top: 0;
+  padding: 0;
+}
+
+.price-text {
+  background: 0 0;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.button-container {
+  margin-bottom: 25px;
+}
+
+.btn-buy {
+  margin: 0;
+  width: 100%;
+  height: 48px;
+  font-size: 1.154em;
+  text-align: center;
+  padding: 13px 0;
+  box-sizing: border-box;
+  background: #2196f3;
+  border-color: #2196f3;
+  color: #fff;
+  display: inline-block;
+  border: 2px solid #2196f3;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+
+.product-page-info-description {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.description {
+  border-bottom: 2px solid #efefef;
+  border-top: 2px solid #efefef;
+  padding: 30px 0;
+  line-height: 1.875;
+}
+
+.medium {
+  font-weight: 500;
+}

@@ -13,8 +13,4 @@ export class ProductServes {
   public getProducts() {
     return  this.http.get<Product[]>(this.productUrl);
   }
-
-  public moreInfo(product: Product) {
-    this.router.navigate(["/"])
-  }
 }

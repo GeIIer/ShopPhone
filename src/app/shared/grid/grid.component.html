@@ -14,9 +14,7 @@
             {{ dataItem[column.columnField] }}
           </td>
           <div class="btn-container">
-            <button class="btn-more" (click)="moreInfo(dataItem)">
-              Подробнее
-            </button>
+            <a [routerLink]="['/products']" [queryParams]="{'product':dataItem.idProduct}">Подробнее</a>
             <button class="btn-buy" (click)="addToCart(dataItem)">
               Купить
             </button>

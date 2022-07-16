@@ -1,4 +1,10 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '@core/models';
+import { Subscription } from 'rxjs';
+import { StorageServes } from 'src/app/service/storage.serves';
+import { CartService } from '../cart/cart.serves';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +13,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  private productUrl = 'http://localhost:8080/api/product';
+
+  product: Product;
+  idProduct: any;
+
+  private quary: Subscription;
+
+  constructor(private http: HttpClient, private storage: StorageServes, private cartService: CartService, private route: ActivatedRoute) {
+    this.quary = route.queryParams.subscribe(
+      (quaryParam: any) => {
+        this.idProduct = quaryParam['product'];
+      });
+    }
 
   ngOnInit(): void {
+    let user = this.storage.getUser();
+    let token = this.storage.getToken(user);
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Authorization', "Bearer " + token);
+    console.log(this.productUrl+"?product="+this.idProduct)
+
+    this.http.get<Product>(this.productUrl+"?product="+this.idProduct, {headers}).subscribe( data => {
+      this.product = data;
+    });
   }
 
+  addToCart(item: any){
+    this.cartService.addtoCart(item);
+  }
 }

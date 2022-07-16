@@ -30,10 +30,6 @@ export class GridComponent implements OnInit {
     this.cartService.addtoCart(item);
   }
 
-  moreInfo(item: any) {
-    this.productServes.moreInfo(item);
-  }
-
   removeItem(item: any){
     this.cartService.removeCartItem(item);
   }
