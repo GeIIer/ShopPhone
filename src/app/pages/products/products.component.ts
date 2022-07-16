@@ -13,7 +13,7 @@ import { CartService } from '../cart/cart.serves';
 })
 export class ProductsComponent implements OnInit {
 
-  private productUrl = 'http://localhost:8080/api/product';
+  private productUrl = 'http://localhost:8080/api/products/product';
 
   product: Product;
   idProduct: any;
@@ -28,13 +28,9 @@ export class ProductsComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    let user = this.storage.getUser();
-    let token = this.storage.getToken(user);
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', "Bearer " + token);
     console.log(this.productUrl+"?product="+this.idProduct)
 
-    this.http.get<Product>(this.productUrl+"?product="+this.idProduct, {headers}).subscribe( data => {
+    this.http.get<Product>(this.productUrl+"?product="+this.idProduct).subscribe( data => {
       this.product = data;
     });
   }
