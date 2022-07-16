@@ -10,31 +10,39 @@
       </thead>
       <tbody>
         <tr *ngFor="let dataItem of data">
-        <td class="table-cell" *ngFor="let column of columns">
-          {{ dataItem[column.columnField] }}
-        </td>
-        <button class="buyButton" (click)="addToCart(dataItem)">Купить</button>
+          <td class="table-cell" *ngFor="let column of columns">
+            {{ dataItem[column.columnField] }}
+          </td>
+          <div class="btn-container">
+            <button class="btn-more" (click)="moreInfo(dataItem)">
+              Подробнее
+            </button>
+            <button class="btn-buy" (click)="addToCart(dataItem)">
+              Купить
+            </button>
+          </div>
         </tr>
       </tbody>
-      </ng-template>
+    </ng-template>
 
-      <ng-template [ngSwitchCase]="typeColumn.Cart">
-        <thead>
-          <tr>
-            <th class="table-head" *ngFor="let column of columns">
-              {{ column.columnName }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
+    <ng-template [ngSwitchCase]="typeColumn.Cart">
+      <thead>
+        <tr>
+          <th class="table-head" *ngFor="let column of columns">
+            {{ column.columnName }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
         <tr *ngFor="let dataItem of cart">
           <td class="table-cell" *ngFor="let column of columns">
-              {{ dataItem[column.columnField] }}
+            {{ dataItem[column.columnField] }}
           </td>
-          <button class = "btn-remove" (click)="removeItem(dataItem)"> <img src="../../../assets/imgs/trash.svg"> </button>
-          </tr>
-        </tbody>
-      </ng-template>
-      </div>
+          <button class="btn-remove" (click)="removeItem(dataItem)">
+            <img src="../../../assets/imgs/trash.svg" />
+          </button>
+        </tr>
+      </tbody>
+    </ng-template>
+  </div>
 </table>
-

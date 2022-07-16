@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
-import { RouterModule } from '@angular/router';
-import { GridModule } from 'src/app/shared/grid/grid.module';
 
 
 
@@ -11,14 +9,7 @@ import { GridModule } from 'src/app/shared/grid/grid.module';
     ProductsComponent
   ],
   imports: [
-    CommonModule,
-    GridModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ProductsComponent,
-      },
-    ]),
-  ],
+    CommonModule
+  ]
 })
 export class ProductsModule { }

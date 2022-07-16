@@ -6,7 +6,7 @@
     <div class="card-footer">
       <strong>ИТОГО : {{ grandTotal }} ₽</strong>
       <div class="btn-buy-or-login">
-        <button *ngIf="isLoggedIn" (click)="buyProduct()" class="btn-buy">
+        <button *ngIf="isLoggedIn" (click)="buyProduct(grandTotal)" class="btn-buy">
           Оформить заказ
         </button>
         <button *ngIf="!isLoggedIn" (click)="routToLogin()" class="btn-to-login">

@@ -1,29 +1,24 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@core/models';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject} from 'rxjs';
 import { StorageServes } from 'src/app/service/storage.serves';
 
 const addOrder = 'http://localhost:8080/api/order/add';
-
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  public cartItemList : any = []
+  public cartItemList : any = [];
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
   public errorMessage = "";
 
   constructor(private storage: StorageServes, private http:HttpClient) { }
   getProducts() {
-    var temp = JSON.parse(localStorage.getItem("products") || '{}');
+    var temp = JSON.parse(localStorage.getItem("products") || '[]');
     this.cartItemList = temp;
     return temp;
   }
@@ -64,13 +59,13 @@ export class CartService {
     localStorage.setItem("products", JSON.stringify(this.cartItemList));
   }
 
-  buyProduct(product: Product[]) {
+  buyProduct(product: Product[], totalPrice:number) {
     let user = this.storage.getUser();
     let token = this.storage.getToken(user);
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', "Bearer "+token);
-    this.http.post(addOrder+"?email="+user.email, JSON.stringify(product), {headers}).subscribe({
+    this.http.post(addOrder+"?email="+user.email+"&price="+totalPrice, JSON.stringify(product), {headers}).subscribe({
       next: data => {
         console.log(data);
       },

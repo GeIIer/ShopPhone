@@ -32,8 +32,8 @@ export class CartComponent implements OnInit{
     this.cartService.removeCartItem(item);
   }
 
-  buyProduct(){
-    this.cartService.buyProduct(this.products);
+  buyProduct(totalPrice: number){
+    this.cartService.buyProduct(this.products, totalPrice);
     this.cartService.removeAllCart();
   }
 
