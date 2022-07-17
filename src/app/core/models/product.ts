@@ -4,6 +4,7 @@ export class Product {
   price: number;
   characteristic: string;
   description: string;
+  urlImage: string[];
   category: string;
   manufacturer: string;
 }

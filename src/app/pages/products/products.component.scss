@@ -44,7 +44,6 @@ h1 {
 
 .product-page-info-img {
   float: left;
-  width: 44.79%;
   padding: 0 1.871% 0 0;
   position: relative;
   margin-bottom: 20px;
@@ -169,4 +168,12 @@ h5 {
 
 .medium {
   font-weight: 500;
+}
+
+.product-page-info-mainImg {
+  height: 400px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  font-size: 0;
 }

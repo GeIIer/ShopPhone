@@ -42,20 +42,6 @@
   min-width: 10px;
 }
 
-.btn-more {
-    background: #2196f3;
-    color: #fff;
-    padding: 3px;
-    border: none;
-    border-radius: 3px;
-    text-decoration: none;
-    font-family: Tahoma;
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 100;
-    cursor: pointer;
-}
-
 .btn-buy {
   background: #2196f3;
   color: #fff;
@@ -74,6 +60,21 @@
 .btn-container {
   display: flex;
   justify-content: space-between;
+}
+
+.btn-container a {
+  background: #2196f3;
+  color: #fff;
+  padding: 3px;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: Tahoma;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 100;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 
