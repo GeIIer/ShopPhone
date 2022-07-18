@@ -6,7 +6,13 @@
   </header>
   <div class="info-container">
     <h3>Email: {{ profile.email }}</h3>
-    <h3>Номер телефона: {{ profile.phoneNumber }}</h3>
+    <h3>Номер телефона:  {{ profile.phoneNumber }}</h3>
+    <div class="profilr-roles">
+      <h3>Права доступа:</h3>
+      <div class="roles" *ngFor="let role of profile.roles; let i = index" >
+        {{i+1}}) {{role}}
+      </div>
+    </div>
     <div class="orders-container" *ngFor="let order of orders">
       <hr />
       <h3>Номер заказа: {{ order.idOrder }}</h3>
