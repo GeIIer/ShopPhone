@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '@core/models';
 import { Subscription } from 'rxjs';
 import { StorageServes } from 'src/app/service/storage.serves';
@@ -17,10 +17,11 @@ export class ProductsComponent implements OnInit {
 
   product: Product;
   idProduct: any;
+  buy = false;
 
   private quary: Subscription;
 
-  constructor(private http: HttpClient, private storage: StorageServes, private cartService: CartService, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private storage: StorageServes, private cartService: CartService, private route: ActivatedRoute, private router: Router) {
     this.quary = route.queryParams.subscribe(
       (quaryParam: any) => {
         this.idProduct = quaryParam['product'];
@@ -37,5 +38,10 @@ export class ProductsComponent implements OnInit {
 
   addToCart(item: any){
     this.cartService.addtoCart(item);
+    this.buy = true;
+  }
+
+  routToCart() {
+    this.router.navigate(['/cart']);
   }
 }

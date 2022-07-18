@@ -46,8 +46,11 @@
             </div>
           </div>
           <div class="button-container">
-            <button class="btn-buy" (click)="addToCart(product)">
+            <button class="btn-buy" *ngIf="!buy" (click)="addToCart(product)">
               Купить
+            </button>
+            <button class="btn-buy" *ngIf="buy" (click)="routToCart()">
+              В корзину
             </button>
           </div>
         </div>

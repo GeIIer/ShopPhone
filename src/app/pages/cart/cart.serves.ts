@@ -54,9 +54,10 @@ export class CartService {
   }
 
   removeAllCart(){
-    this.cartItemList = []
+    this.cartItemList = [];
     this.productList.next(this.cartItemList);
     localStorage.setItem("products", JSON.stringify(this.cartItemList));
+    window.location.reload();
   }
 
   buyProduct(product: Product[], totalPrice:number) {
