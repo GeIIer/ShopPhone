@@ -1,3 +1,24 @@
-<div class="product-container">
-  <app-grid [columns]="columns" [data] = "products" myType = Products> </app-grid>
+<div class="product-page-container">
+  <div class="product-left-block">
+    <div class="product-liner">
+      <div class="input">
+        <input class="input-search" placeholder="Поиск по названию" [(ngModel)]="search">
+      </div>
+      <div class="price">
+        <h4>Цена:</h4>
+        <div class="price-container">
+          <div class="price-input1">
+            <input class="input-search" type="number" placeholder="от" [(ngModel)]="price1">
+          </div>
+          <div class="price-input2">
+            <input class="input-search" type="number" placeholder="до" [(ngModel)]="price2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-container">
+    <app-grid [columns]="columns" [data]="products" myType="Products" [searchStr]="search" [price1]="price1" [price2]="price2">
+    </app-grid>
+  </div>
 </div>

@@ -14,9 +14,12 @@ import { ColumnType } from './models';
 export class GridComponent implements OnInit {
 
   @Input() columns!: IGridColumn[];
-  @Input() data!: any[];
+  @Input() data!: any;
   @Input() myType!: string;
   @Input() cart: any[] = [];
+  @Input() searchStr: string;
+  @Input() price1: number;
+  @Input() price2: number;
 
   public productList : any ;
   public filterCategory : any

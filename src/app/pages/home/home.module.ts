@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,

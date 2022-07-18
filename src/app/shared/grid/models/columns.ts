@@ -1,4 +1,3 @@
-import { Order } from "@core/models/order";
 
 export enum ColumnType{
   Cart = "Cart",

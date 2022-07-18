@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CatalogComponent} from './catalog.component';
 import { RouterModule } from '@angular/router';
 import { GridModule } from 'src/app/shared/grid/grid.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,6 +14,7 @@ import { GridModule } from 'src/app/shared/grid/grid.module';
   imports: [
     CommonModule,
     GridModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: '',

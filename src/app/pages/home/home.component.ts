@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 
 const slider_active = "slide active";
 const slider_not_active = "slide";
@@ -10,13 +11,13 @@ let index = 0;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
   constructor() { }
 
+
   ngOnInit(): void {
   }
-
 
   public activeSlide(n: number) {
     let slides = Array.from(document.querySelectorAll('.slide'));
@@ -60,6 +61,12 @@ export class HomeComponent implements OnInit {
       this.activeSlide(index);
       this.activeDot(index);
     }
+  }
+
+  public changeSlide(n: number) {
+    index=n;
+    this.activeSlide(index);
+    this.activeDot(index);
   }
 }
 

@@ -13,6 +13,9 @@ import { IGridColumn } from 'src/app/shared/grid/models';
 export class CatalogComponent implements OnInit {
 
   public filterCategory : any
+  public search: string;
+  public price1: number;
+  public price2: number;
 
   products: Product[];
   columns: IGridColumn[] = [

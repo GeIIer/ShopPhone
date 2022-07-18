@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let dataItem of data">
+        <tr *ngFor="let dataItem of data | searchByName:searchStr | searchByPrice: price1: price2">
           <td class="table-cell" *ngFor="let column of columns">
             {{ dataItem[column.columnField] }}
           </td>
