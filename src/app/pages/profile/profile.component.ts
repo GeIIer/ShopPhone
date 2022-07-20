@@ -5,6 +5,9 @@ import { Router } from '@angular/router'
 import { User } from '@core/models/user';
 import { ProfileServes } from './profile.serves';
 import { Order } from '@core/models/order';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const DELETE_ORDER_URL = "http://localhost:8080/api/order/"
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +19,7 @@ export class ProfileComponent implements OnInit {
   orders: Order[];
   isLoggedIn = false;
 
-  constructor(private auth: AuthServes, private store: StorageServes, private profileServes: ProfileServes, private router: Router) { }
+  constructor(private auth: AuthServes, private store: StorageServes, private profileServes: ProfileServes, private router: Router, private http:HttpClient) { }
 
   ngOnInit(): void {
     if (this.store.isLoggedIn()) {
@@ -31,20 +34,39 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  refreshOrder(): void {
+  public refreshOrder(): void {
     this.profileServes.getOrders(this.profile.email).subscribe(
       data => {
         this.orders = data;
       });
   }
 
+  isAdmin(): boolean {
+    var flag = false;
+    for(let i of this.profile.roles) {
+      if (i == "ADMIN") {
+        flag = true;
+      }
+    }
+    return flag;
+  }
+
+  deleteOrder(id:number) {
+    let user = this.store.getUser();
+    let token = this.store.getToken(user);
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Authorization', "Bearer "+token);
+    this.orders = this.orders.filter(function(el) { return el.idOrder != id; });
+    this.http.delete(DELETE_ORDER_URL+id, {headers}).subscribe();
+  }
+
+  goToAdmin() {
+    this.router.navigate(['/admin']);
+  }
+
   logout(): void {
     this.store.signOut();
     window.location.reload();
-    this.goToLogin();
   }
 
-  goToLogin() {
-    this.router.navigate(['/home']);
-  }
 }

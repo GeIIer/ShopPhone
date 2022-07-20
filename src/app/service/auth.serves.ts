@@ -53,7 +53,6 @@ export class AuthServes {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', "Bearer "+token);
-    console.log(AUTH_API + "/getUser?email="+email, {headers});
     return this.http.get<User>(AUTH_API + "/getUser?email="+email, {headers});
   }
 }
