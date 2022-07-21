@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoardAdminComponent } from './board-admin.component';
 import { RouterModule } from '@angular/router';
+import { BoardAdminProductComponent } from './board-admin-product.component';
 
 
 
 @NgModule({
   declarations: [
-    BoardAdminComponent,
+    BoardAdminProductComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: BoardAdminComponent,
+        component: BoardAdminProductComponent,
       },
     ]),
   ],
-  exports: [BoardAdminComponent],
+  exports: [BoardAdminProductComponent],
 })
-export class BoardAdminModule { }
+export class BoardAdminProductModule { }

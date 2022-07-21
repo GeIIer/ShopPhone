@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BoardAdminProductComponent } from './pages/board-admin/board-admin-product.component';
 
 const routes: Routes = [{
   path: '',
@@ -48,6 +49,11 @@ const routes: Routes = [{
       path: 'admin',
       loadChildren: () =>
         import('./pages/board-admin/board-admin.module').then((m) => m.BoardAdminModule),
+    },
+    {
+      path: 'newproduct',
+      loadChildren: () =>
+        import('./pages/board-admin/board-admin-product.module').then((m) => m.BoardAdminProductModule),
     },
   ],
 },
